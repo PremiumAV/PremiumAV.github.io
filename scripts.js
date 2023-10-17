@@ -5,10 +5,10 @@ const vendor = urlParams.get("vendor");
 
 const titleDiv = document.getElementById("productTitle");
 const descriptionContentDiv = document.getElementById("tinymce")
-const productPriceDiv = document.getElementById("productPrice");
+const vendorDiv = document.getElementById("vendor");
 
 titleDiv.value = productTitle;
-productPriceDiv.value = vendor;
+vendorDiv.value = vendor;
 
 // Rich Text
 tinymce.init({
