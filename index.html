@@ -4,6 +4,33 @@
     <meta charset="UTF-8">
     <title>Product Import Form</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        #image-container {
+            display: flex;
+            align-items: center;
+        }
+        .image-preview {
+            max-width: 100px;
+            max-height: 100px;
+            margin-right: 10px;
+            display: inline-block;
+            position: relative;
+        }
+        .image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .remove-image {
+            cursor: pointer;
+            color: red;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: white;
+            border-radius: 50%;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -22,8 +49,8 @@
                 <input type="text" id="vendor" name="vendor" step="0.01" required>
             </div>
             <div class="form-group">
-                <label for="productImage">Product Image:</label>
-                <input type="file" id="productImage" name="productImage">
+                <label for="imageUpload">Upload Images:</label>
+                <input type="file" id="imageUpload" name="imageUpload" accept="image/*" multiple>
             </div>
             <div class="form-group">
                 <input type="submit" value="Import Product">
