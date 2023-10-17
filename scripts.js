@@ -11,3 +11,17 @@ tinymce.init({
         });
     }
 });
+
+
+urlParams = new URLSearchParams(window.location.search);
+const productTitle = urlParams.get("productTitle");
+const productDescription = urlParams.get("productDescription");
+const vendor = urlParams.get("vendor");
+
+const titleDiv = document.getElementById("productTitle");
+const descriptionContentDiv = document.getElementById("tinymce")
+const productPriceDiv = document.getElementById("productPrice");
+
+titleDiv.value = productTitle;
+descriptionContentDiv.innerHTML = productDescription;
+productPriceDiv.value = vendor;
