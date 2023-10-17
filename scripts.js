@@ -2,12 +2,10 @@ urlParams = new URLSearchParams(window.location.search);
 const productTitle = urlParams.get("productTitle");
 const productDescription = urlParams.get("productDescription");
 const vendor = urlParams.get("vendor");
-const landingImg = urlParams.get("landingImg");
 
 const titleDiv = document.getElementById("productTitle");
 const descriptionContentDiv = document.getElementById("tinymce")
 const vendorDiv = document.getElementById("vendor");
-const landingImgInput = document.getElementById("imageUpload");
 
 titleDiv.value = productTitle;
 vendorDiv.value = vendor;
