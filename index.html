@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Product Import Form</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdn.tiny.cloud/1/zn0o2ea0yl4pw54oilezgu6pofsb9ij0mkmyvguik7yquyfp/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <style>
         #image-container {
             display: flex;
@@ -35,7 +36,7 @@
 <body>
     <div class="container">
         <h1>Import a Product to Shopify</h1>
-        <form id="productImportForm">
+        <form id="productImportForm" method="post" action="upload.php">
             <div class="form-group">
                 <label for="productTitle">Product Title:</label>
                 <input type="text" id="productTitle" name="productTitle" required>
@@ -45,9 +46,13 @@
                 <textarea id="productDescription" name="productDescription" rows="4"></textarea>
             </div>
             <div class="form-group">
-                <label for="vendor">Vendor:</label>
-                <input type="text" id="vendor" name="vendor" step="0.01" required>
+                <label for="productPrice">Product Price:</label>
+                <input type="number" id="productPrice" name="productPrice" step="0.01" required>
             </div>
+            <!--<div class="form-group">
+                <label for="productImage">Product Image:</label>
+                <input type="file" id="productImage" name="productImage">
+            </div>-->
             <div class="form-group">
                 <label for="imageUpload">Upload Images:</label>
                 <input type="file" id="imageUpload" name="imageUpload" accept="image/*" multiple>
@@ -58,7 +63,6 @@
             </div>
         </form>
     </div>
-    <script src="https://cdn.tiny.cloud/1/zn0o2ea0yl4pw54oilezgu6pofsb9ij0mkmyvguik7yquyfp/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="scripts.js"></script>
 </body>
 </html>
