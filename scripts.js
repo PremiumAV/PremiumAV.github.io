@@ -12,36 +12,6 @@ const = landingImgInput = document.getElementById("imageUpload");
 titleDiv.value = productTitle;
 vendorDiv.value = vendor;
 
-// Adding image to files upload
-const myFile = new File(['Product File 0'], landingImg , {
-    type: 'image/jpeg',
-});
-
-const dataTransfer = new DataTransfer();
-dataTransfer.items.add(myFile);
-landingImgInput.files = dataTransfer.files;
-
-// Adding preview of image
-const imagePreviews = document.getElementById("image-previews");
-imagePreviews.innerHTML = ""; // Clear previous previews
-const imagePreview = document.createElement("div");
-imagePreview.className = "image-preview";
-const imageElement = document.createElement("img");
-imageElement.src = URL.createObjectURL(file);
-imagePreview.appendChild(imageElement);
-
-// Add 'Remove' button
-const removeButton = document.createElement("span");
-removeButton.innerHTML = "&#10006;"; // 'x' symbol
-removeButton.className = "remove-image";
-removeButton.addEventListener("click", function () {
-    imagePreviews.removeChild(imagePreview);
-    document.getElementById("imageUpload").value = ""; // Clear file input
-});
-
-imagePreview.appendChild(removeButton);
-imagePreviews.appendChild(imagePreview);
-
 // Rich Text
 tinymce.init({
     selector: "#productDescription",
