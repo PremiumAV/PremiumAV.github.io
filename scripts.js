@@ -23,3 +23,29 @@ tinymce.init({
         });
     }
 });
+
+document.getElementById("imageUpload").addEventListener("change", function (e) {
+    const imagePreviews = document.getElementById("image-previews");
+    imagePreviews.innerHTML = ""; // Clear previous previews
+
+    for (let i = 0; i < e.target.files.length; i++) {
+        const file = e.target.files[i];
+        const imagePreview = document.createElement("div");
+        imagePreview.className = "image-preview";
+        const imageElement = document.createElement("img");
+        imageElement.src = URL.createObjectURL(file);
+        imagePreview.appendChild(imageElement);
+
+        // Add 'Remove' button
+        const removeButton = document.createElement("span");
+        removeButton.innerHTML = "&#10006;"; // 'x' symbol
+        removeButton.className = "remove-image";
+        removeButton.addEventListener("click", function () {
+            imagePreviews.removeChild(imagePreview);
+            document.getElementById("imageUpload").value = ""; // Clear file input
+        });
+
+        imagePreview.appendChild(removeButton);
+        imagePreviews.appendChild(imagePreview);
+    }
+});
