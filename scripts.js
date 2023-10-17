@@ -7,7 +7,7 @@ const landingImg = urlParams.get("landingImg");
 const titleDiv = document.getElementById("productTitle");
 const descriptionContentDiv = document.getElementById("tinymce")
 const vendorDiv = document.getElementById("vendor");
-const = landingImgInput = document.getElementById("imageUpload");
+const landingImgInput = document.getElementById("imageUpload");
 
 titleDiv.value = productTitle;
 vendorDiv.value = vendor;
