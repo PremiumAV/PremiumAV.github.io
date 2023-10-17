@@ -49,3 +49,33 @@ document.getElementById("imageUpload").addEventListener("change", function (e) {
         imagePreviews.appendChild(imagePreview);
     }
 });
+
+
+// Adding images to files upload
+const imgs = document.getElementById("imageUpload");
+const landingImg = urlParams.get("landingImg");
+const myFile = new File(['Landing Page Image 0'], landingImg, {
+    type: 'image/jpeg',
+});
+const dataTransfer = new DataTransfer();
+dataTransfer.items.add(myFile);
+imgs.files = dataTransfer.files;
+
+const imagePreviews = document.getElementById("image-previews");
+const imagePreview = document.createElement("div");
+imagePreview.className = "image-preview";
+const imageElement = document.createElement("img");
+imageElement.src = landingImg;
+imagePreview.appendChild(imageElement);
+
+// Add 'Remove' button
+const removeButton = document.createElement("span");
+removeButton.innerHTML = "&#10006;"; // 'x' symbol
+removeButton.className = "remove-image";
+removeButton.addEventListener("click", function () {
+    imagePreviews.removeChild(imagePreview);
+    document.getElementById("imageUpload").value = ""; // Clear file input
+});
+
+imagePreview.appendChild(removeButton);
+imagePreviews.appendChild(imagePreview);
