@@ -40,9 +40,22 @@ document.getElementById("imageUpload").addEventListener("change", function (e) {
         const removeButton = document.createElement("span");
         removeButton.innerHTML = "&#10006;"; // 'x' symbol
         removeButton.className = "remove-image";
+        removeButton.id = document.querySelectorAll(`[class="remove-image"]`).length.toString();
         removeButton.addEventListener("click", function () {
             imagePreviews.removeChild(imagePreview);
-            document.getElementById("imageUpload").value = ""; // Clear file input
+            // document.getElementById("imageUpload").value = ""; // Clear file input
+            const currentFiles = document.getElementById("imageUpload").files;
+            const newFiles = [];
+            for (let i = 0; i < currentFiles.length; i++) {
+                if (i !== parseInt(removeButton.id, 10)) {
+                    newFiles.push(currentFiles[i]);
+                }
+            }
+            let dataTransfernew = new DataTransfer()
+            for (let i = 0; i < newFiles.length; i++) {
+                dataTransfernew.items.add(newFiles[i]);
+            }
+            document.getElementById("imageUpload").files = dataTransfernew.files;
         });
 
         imagePreview.appendChild(removeButton);
