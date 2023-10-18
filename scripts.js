@@ -26,7 +26,7 @@ tinymce.init({
 
 document.getElementById("imageUpload").addEventListener("change", function (e) {
     const imagePreviews = document.getElementById("image-previews");
-    // imagePreviews.innerHTML = ""; // Clear previous previews
+    imagePreviews.innerHTML = ""; // Clear previous previews
 
     for (let i = 0; i < e.target.files.length; i++) {
         const file = e.target.files[i];
