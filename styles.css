@@ -82,12 +82,20 @@ input[type="submit"]:hover {
     margin-right: 10px;
     display: inline-block;
     position: relative;
+    border: 2px solid #ccc; /* Border color and thickness */
+    border-radius: 10px; /* Adjust the radius to control the curvature */
+
+    /* You can also add padding to give the border some space around the image */
+    padding: 5px;
 }
+
 .image-preview img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 8px; /* Adjust this radius to match the parent's border radius */
 }
+
 .remove-image {
     cursor: pointer;
     color: red;
